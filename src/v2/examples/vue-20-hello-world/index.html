@@ -1,21 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>My first Vue app</title>
-  <script src="https://unpkg.com/vue"></script>
-</head>
-<body>
-  <div id="app">
-    {{ message }}
-  </div>
+<div class="nav-bar"></div>
 
-  <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        message: 'Hello Vue!'
-      }
-    })
-  </script>
-</body>
-</html>
+<div id="app">
+  
+  <div class="product">
+  
+    <div class="product-image">
+      <img :src="image" />
+    </div>
+
+    <div class="product-info">
+      <h1>{{ product }}</h1>
+      <p v-if="inStock">In Stock</p>
+      <p v-else>Out of Stock</p>
+
+      <ul>
+        <li v-for="detail in details">{{ detail }}</li>
+      </ul>
+
+      <ul>
+        <li v-for="size in sizes">{{ size }}</li>
+      </ul>
+
+
+      <div v-for="variant in variants" :key="variant.variantId">
+        <p>{{ variant.variantColor }}</p>
+      </div>
+
+    </div>  
+    
+  </div>
+  
+</div> 
+
+ <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
